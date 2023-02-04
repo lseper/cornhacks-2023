@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/Player.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=7]
+
+[sub_resource type="CapsuleShape2D" id=2]
+height = 28.0
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 7 )
+velocity = Vector2( 0, 10 )
+gravity = Vector2( 0, 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -25 )
+frames = ExtResource( 1 )
+animation = "running"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -25 )
+shape = SubResource( 2 )
