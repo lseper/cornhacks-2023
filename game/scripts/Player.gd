@@ -42,3 +42,5 @@ func _process(_delta: float) -> void:
 
 func _on_player_death() -> void:
 	$AnimatedSprite.play("death")
+	velocity = Vector2(0, 0)
+	gravity = Vector2(0, 0)

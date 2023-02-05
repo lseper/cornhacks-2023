@@ -957,7 +957,6 @@ enemy_scene = ExtResource( 3 )
 
 [node name="State" type="Node" parent="."]
 script = ExtResource( 4 )
-hp = 3
 
 [node name="Level Tiles" type="TileMap" parent="."]
 tile_set = SubResource( 1 )

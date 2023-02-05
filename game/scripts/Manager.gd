@@ -32,6 +32,7 @@ func _on_hp_changed(delta: int) -> void:
 		state.hp += delta
 	
 	emit_signal('hp_changed', state.hp)
+	
 	if state.hp == 0:
 		$main_mus.play()
 		$main_mus.playing = false
@@ -43,6 +44,7 @@ func _on_hp_changed(delta: int) -> void:
 		$intro.stop()
 		$game_over.play()
 		emit_signal('death')
+		state.dead = true
 		yield($game_over, "finished")
 		get_tree().change_scene("res://scenes/menu.tscn")
 
@@ -68,6 +70,8 @@ func spawn_waves():
 		queue.shuffle()
 		for j in queue:
 			yield(get_tree().create_timer(wave[3]), "timeout")
+			if state.dead:
+				return
 			spawn_enemy(j + 1)
 		yield(get_tree().create_timer(2), "timeout")
 

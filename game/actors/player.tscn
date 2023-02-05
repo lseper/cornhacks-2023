@@ -24,7 +24,7 @@ gravity = Vector2( 0, 2 )
 position = Vector2( 0, -25 )
 frames = ExtResource( 1 )
 animation = "running"
-frame = 4
+frame = 1
 playing = true
 
 [node name="CharacterCollider" type="CollisionShape2D" parent="."]
