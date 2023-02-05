@@ -1,5 +1,7 @@
 # Climbing The Ladder
 an office deer simulator game created for Cornhacks 2023.
+## Link to Video
+https://www.youtube.com/watch?v=CrSyEcQjAVI
 
 ## The Introductory Memo
 Dear **New Employee**,
