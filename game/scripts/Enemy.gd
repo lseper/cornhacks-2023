@@ -2,6 +2,8 @@ extends ActorBase
 
 class_name Enemy
 
+enum { LIVING, DYING, DEAD }
+
 export var direction = 1
 export var speed = 150
 export var variant = 1
@@ -10,6 +12,7 @@ var anim_t: float = 0
 var animation_scale = 1
 var animation_curve = 0
 var last = 0
+var state = LIVING
 
 signal enemy_killed(level)
 
@@ -30,6 +33,10 @@ func _process(delta: float) -> void:
 	if is_on_wall():
 		direction *= -1
 	
+	if state == DYING:
+		velocity = Vector2(0, 0)
+		return
+	
 	if direction == 1:
 		velocity.x = speed * next(delta)
 		sprite.flip_h = false
@@ -42,11 +49,18 @@ func _process(delta: float) -> void:
 
 func deal_damage():
 	$SlimeDeathSound.play()
+	$Collision.disabled = true
+	state = DYING
+	sprite.play(str(variant) + "_death")
+	gravity = Vector2(0, 0)
 	emit_signal("enemy_killed", variant)
-	queue_free()
 
 func get_damage():
 	return variant * 3
 
 func _on_animation_finished() -> void:
-	start_animation()
+	if state == DYING:
+		state = DEAD
+		queue_free()
+	else:
+		start_animation()

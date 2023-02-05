@@ -28,6 +28,7 @@ func spawn_enemy(level: int):
 	enemy.variant = level
 	enemy.gravity.y = 180
 	enemy.position = Vector2(rand_range(150, 900), -8)
+	enemy.connect("enemy_killed", self, "_on_enemy_killed")
 	add_child(enemy)
 
 func spawn_wave():
@@ -37,6 +38,5 @@ func spawn_wave():
 
 func _ready() -> void:
 	$AudioStreamPlayer.play()
-	enemy_scene.connect("enemy_killed", self, "_on_enemy_killed")
 	spawn_wave()
 	

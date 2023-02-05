@@ -15,19 +15,11 @@ script = ExtResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -29 )
 frames = ExtResource( 1 )
-animation = "1"
+animation = "3_death"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -21 )
 shape = SubResource( 2 )
-
-[node name="dbg_frame" type="RichTextLabel" parent="."]
-margin_left = -33.0
-margin_top = -67.0
-margin_right = 33.0
-margin_bottom = -27.0
-text = "0"
-scroll_active = false
 
 [node name="SlimeDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
