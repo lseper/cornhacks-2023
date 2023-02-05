@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
+var reset_pos = Vector2(0, 0)
+
 func _process(delta: float) -> void:
-	position = Vector2(0, 0)
-	
+	position = reset_pos
 	var collision = move_and_collide(Vector2(0, 0))
 	
 	if is_instance_valid(collision) and is_instance_valid(collision.collider):

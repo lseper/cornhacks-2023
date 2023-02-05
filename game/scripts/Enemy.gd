@@ -1,8 +1,11 @@
 extends ActorBase
 
+class_name Enemy
+
 export var direction = 1
 export var damage_value = 2
 export var speed = 150
+export var variant = 1
 
 var anim_t: float = 0
 var animation_scale = 1
@@ -12,7 +15,7 @@ var last = 0
 func start_animation():
 	anim_t = 0
 	last = 0
-	$Sprite.play("default")
+	$Sprite.play(str(variant))
 	
 func next(delta: float):
 	return 1
