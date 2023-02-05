@@ -37,6 +37,9 @@ func spawn_wave():
 		timer.connect("timeout", self, "spawn_enemy", [floor(randf() * 3) + 1])
 
 func _ready() -> void:
-	$AudioStreamPlayer.play()
+	$intro.play()
 	spawn_wave()
+	
+func _on_intro_finished():
+	$main_mus.play()
 	

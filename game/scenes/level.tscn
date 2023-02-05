@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://sprites/tilemap.png" type="Texture" id=1]
 [ext_resource path="res://actors/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/State.gd" type="Script" id=4]
 [ext_resource path="res://scripts/Manager.gd" type="Script" id=5]
-[ext_resource path="res://sounds/maingame.mp3" type="AudioStream" id=6]
+[ext_resource path="res://sounds/maingame-intro.wav" type="AudioStream" id=6]
 [ext_resource path="res://scripts/ScoreLabel.gd" type="Script" id=7]
+[ext_resource path="res://sounds/maingame-loop.mp3" type="AudioStream" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -970,7 +971,7 @@ collision_mask = 15
 velocity = Vector2( 160, 0 )
 gravity = Vector2( 0, 60 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="intro" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -982,6 +983,10 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "fdsgdsgdsfdsgfd"
 script = ExtResource( 7 )
 
+[node name="main_mus" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
 [connection signal="hp_changed" from="." to="RichTextLabel" method="_on_hp_changed"]
 [connection signal="score_changed" from="." to="RichTextLabel" method="_on_score_changed"]
 [connection signal="_hp_changed" from="Player" to="." method="_on_hp_changed"]
+[connection signal="finished" from="intro" to="." method="_on_intro_finished"]
