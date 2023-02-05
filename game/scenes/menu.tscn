@@ -1,35 +1,56 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/menu.gd" type="Script" id=1]
 [ext_resource path="res://sounds/mainmenu.mp3" type="AudioStream" id=2]
 [ext_resource path="res://sprites/317.png" type="Texture" id=3]
 [ext_resource path="res://scripts/team_logo.gd" type="Script" id=4]
+[ext_resource path="res://sprites/example.png" type="Texture" id=5]
+[ext_resource path="res://sprites/title.png" type="Texture" id=6]
+[ext_resource path="res://sprites/office deer.png" type="Texture" id=7]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
+[node name="Example" type="Sprite" parent="."]
+position = Vector2( 517, 28 )
+texture = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="Example"]
+margin_left = -581.0
+margin_top = 378.0
+margin_right = 579.0
+margin_bottom = 604.0
+color = Color( 0.388235, 0.376471, 0.313726, 1 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 176.0
-margin_top = -289.0
-margin_right = 486.0
-margin_bottom = 37.0
+margin_left = 209.0
+margin_top = -288.0
+margin_right = 468.0
+margin_bottom = 38.0
 alignment = 1
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
-margin_top = 138.0
-margin_right = 310.0
-margin_bottom = 161.0
+margin_top = 124.0
+margin_right = 259.0
+margin_bottom = 147.0
 focus_neighbour_top = NodePath("../QuitButton")
 text = "Start New Game"
 
+[node name="AboutButton" type="Button" parent="VBoxContainer"]
+margin_top = 151.0
+margin_right = 259.0
+margin_bottom = 174.0
+focus_neighbour_top = NodePath("../QuitButton")
+text = "About"
+
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 165.0
-margin_right = 310.0
-margin_bottom = 188.0
+margin_top = 178.0
+margin_right = 259.0
+margin_bottom = 201.0
 focus_neighbour_bottom = NodePath("../StartButton")
 text = "Quit"
 
@@ -37,13 +58,24 @@ text = "Quit"
 stream = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 806, 473 )
+position = Vector2( 723, 474 )
 scale = Vector2( 0.459459, 0.459459 )
 texture = ExtResource( 3 )
 script = ExtResource( 4 )
 
 [node name="Tween" type="Tween" parent="Sprite"]
 
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 501, 162 )
+scale = Vector2( 0.796552, 0.796552 )
+texture = ExtResource( 6 )
+
+[node name="OfficeDeer" type="Sprite" parent="."]
+position = Vector2( 470.855, 317.564 )
+scale = Vector2( 0.754865, 0.754865 )
+texture = ExtResource( 7 )
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/AboutButton" to="." method="_on_AboutButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="tween_completed" from="Sprite/Tween" to="Sprite" method="_on_tween_completed"]
