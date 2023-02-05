@@ -32,7 +32,7 @@ W and D or arrow keys to move right and left. Simply walk your laptop into the s
 Developed with love in GDScript using Godot for [CornHacks 2023](https://unlcornhacks.com/) by:
 * Daniel Noon ([@danielnoon](https://github.com/danielnoon))
 * Ben Lohrman ([@blohrman](https://github.com/blohrman))
-* Liam Seper ([@lseper](https://github.com/lseper) and ([@Zaverose](https://github.com/zaverose))
+* Liam Seper ([@lseper](https://github.com/lseper) and/or [@Zaverose](https://github.com/zaverose))
 * Andrew Herold ([@heroldev](https://github.com/heroldev))
 
 
