@@ -15,13 +15,13 @@ Aim for the top! A secret might be waiting for you up there...
 
 - your benevolent superior
 
-#### Innovation & Creativity
+## Innovation & Creativity
 - We've always wanted to build a game together, and we thought that a business-oriented title would be an enjoyable endeavor to build. Everything in the game, from the music, to the art, to all the code in-between, was created from scratch. :)
 
-#### Problem Solved
+## Problem Solved
 - We believed that there aren't enough "office deer simulator" titles in the world, so we sought to change that.
 
-#### Completeness
+## Completeness
 - Our game, albeit simple, does have an end state; the player is eventually felled by a slime.
 
 ## The Brilliant Minds of Room 317 Games, Ltd.
