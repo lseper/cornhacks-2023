@@ -3,6 +3,7 @@ an office deer simulator game created for Cornhacks 2023.
 
 ## The Introductory Memo
 Dear **New Employee**,
+
 Welcome to Climbing the Ladder!
 
 You play as an intrepid business deer who just got a job as a new software developer at an upstart tech firm!
