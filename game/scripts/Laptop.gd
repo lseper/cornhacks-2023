@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var reset_pos = Vector2(0, 0)
 
-func _process(delta: float) -> void:
+func _process(_elta: float) -> void:
 	position = reset_pos
 	var collision = move_and_collide(Vector2(0, 0))
 	
