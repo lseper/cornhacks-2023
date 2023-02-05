@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/intro.gd" type="Script" id=1]
 [ext_resource path="res://cutscenes/intro/coding heroes.png" type="Texture" id=2]
-[ext_resource path="res://sounds/itk.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sounds/intro.mp3" type="AudioStream" id=3]
 [ext_resource path="res://cutscenes/intro/intro.ogv" type="VideoStream" id=4]
 [ext_resource path="res://cutscenes/intro/music master.png" type="Texture" id=5]
 [ext_resource path="res://cutscenes/intro/created in.png" type="Texture" id=6]
