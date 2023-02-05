@@ -38,6 +38,6 @@ func _ready():
 	$AnimationPlayer.play("Fade Out")
 	yield(get_tree().create_timer(1), "timeout")
 	$"presented".hide()
-
+	
 	# switch scenes here
 	get_tree().change_scene("res://scenes/menu.tscn")
