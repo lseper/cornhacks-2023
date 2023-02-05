@@ -25,7 +25,7 @@ margin_bottom = 636.0
 margin_left = 270.0
 margin_top = 93.0
 margin_right = 786.0
-margin_bottom = 513.0
+margin_bottom = 576.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Dear <<New Employee>>,
 Welcome to Climbing the Ladder!
@@ -38,7 +38,15 @@ Slimes represent issue tickets. The more slimes you slay, the higher your positi
 
 Aim for the top! A secret might be waiting for you up there...
 
-- your benevolent superior"
+- your benevolent superior
+
+
+
+
+
+
+P.S.
+controls: A and D or <- and -> to move right and left"
 
 [node name="BackButton" type="Button" parent="."]
 margin_left = 428.0
