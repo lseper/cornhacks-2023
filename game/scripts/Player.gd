@@ -6,11 +6,13 @@ signal hp_changed(delta)
 export var speed = 160
 var direction = 1
 var invuln = false
+var ass_reset_position = Vector2(0, 0)
 
 func make_vulnerable():
 	invuln = false
 
 func _physics_process(_delta: float) -> void:
+	$Ass.position = ass_reset_position
 	$Ass.move_and_slide(Vector2(0, 0), Vector2.UP)
 
 func _process(_delta: float) -> void:
@@ -21,11 +23,13 @@ func _process(_delta: float) -> void:
 		velocity.x = -speed
 		$AnimatedSprite.flip_h = true
 		$Laptop.reset_pos.x = -50
+		ass_reset_position.x = 50
 	elif movement > 0.25:
 		direction = 1
 		velocity.x = speed
 		$AnimatedSprite.flip_h = false
 		$Laptop.reset_pos.x = 0
+		ass_reset_position.x = 0
 		
 	var collision = $Ass.get_last_slide_collision()
 
@@ -35,3 +39,6 @@ func _process(_delta: float) -> void:
 			invuln = true
 			get_tree().create_timer(0.5).connect("timeout", self, "make_vulnerable")
 			emit_signal("hp_changed", -damage)
+
+func _on_player_death() -> void:
+	$AnimatedSprite.play("death")

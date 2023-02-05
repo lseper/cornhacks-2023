@@ -5,7 +5,6 @@ class_name Enemy
 enum { LIVING, DYING, DEAD }
 
 export var direction = 1
-export var speed = 150
 export var variant = 1
 
 var anim_t: float = 0
@@ -30,6 +29,8 @@ func _ready() -> void:
 	start_animation()
 
 func _process(delta: float) -> void:
+	var speed = 160 + variant * 40
+
 	if is_on_wall():
 		direction *= -1
 	
@@ -57,6 +58,12 @@ func deal_damage():
 
 func get_damage():
 	return variant * 3
+
+func _on_player_death() -> void:
+	velocity = Vector2(0, 0)
+	gravity = Vector2(0, 0)
+	state = DYING
+	sprite.playing = false
 
 func _on_animation_finished() -> void:
 	if state == DYING:
