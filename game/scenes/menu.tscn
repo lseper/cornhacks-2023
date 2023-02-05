@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/menu.gd" type="Script" id=1]
 [ext_resource path="res://sounds/mainmenu.mp3" type="AudioStream" id=2]
+[ext_resource path="res://sprites/317.png" type="Texture" id=3]
+[ext_resource path="res://scripts/team_logo.gd" type="Script" id=4]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -11,37 +13,37 @@ script = ExtResource( 1 )
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 50.0
-margin_top = -170.0
-margin_right = 171.0
+margin_left = 176.0
+margin_top = -289.0
+margin_right = 486.0
+margin_bottom = 37.0
 alignment = 1
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
-margin_top = 46.0
-margin_right = 121.0
-margin_bottom = 69.0
+margin_top = 138.0
+margin_right = 310.0
+margin_bottom = 161.0
 focus_neighbour_top = NodePath("../QuitButton")
-focus_neighbour_bottom = NodePath("../OptionsButton")
-text = "Start"
-
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
-margin_top = 73.0
-margin_right = 121.0
-margin_bottom = 96.0
-focus_neighbour_top = NodePath("../StartButton")
-focus_neighbour_bottom = NodePath("../QuitButton")
-text = "Options"
+text = "Start New Game"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 100.0
-margin_right = 121.0
-margin_bottom = 123.0
-focus_neighbour_top = NodePath("../OptionsButton")
+margin_top = 165.0
+margin_right = 310.0
+margin_bottom = 188.0
 focus_neighbour_bottom = NodePath("../StartButton")
 text = "Quit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 806, 473 )
+scale = Vector2( 0.459459, 0.459459 )
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="Sprite"]
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="tween_completed" from="Sprite/Tween" to="Sprite" method="_on_tween_completed"]

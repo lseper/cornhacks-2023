@@ -11,6 +11,7 @@ func _ready():
 	$VideoPlayer.hide()
 	$AudioStreamPlayer.play()
 	
+	
 	$AnimationPlayer.play("RESET")
 	$"coding heroes".show()
 	yield(get_tree().create_timer(3), "timeout")
@@ -38,6 +39,5 @@ func _ready():
 	yield(get_tree().create_timer(1), "timeout")
 	$"presented".hide()
 
-	
 	# switch scenes here
 	get_tree().change_scene("res://scenes/menu.tscn")
