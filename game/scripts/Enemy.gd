@@ -11,7 +11,7 @@ var animation_scale = 1
 var animation_curve = 0
 var last = 0
 
-signal enemy_dead(level)
+signal enemy_killed(level)
 
 onready var sprite = $Sprite
 
@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 
 func deal_damage():
 	$SlimeDeathSound.play()
-	emit_signal("enemy_dead", variant)
+	emit_signal("enemy_killed", variant)
 	queue_free()
 
 func get_damage():

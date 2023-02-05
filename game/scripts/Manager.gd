@@ -1,4 +1,5 @@
 extends Node2D
+class_name Manager
 
 export (PackedScene) var enemy_scene
 
@@ -6,6 +7,7 @@ var i = 0
 onready var state = $State
 
 signal hp_changed(value)
+signal score_changed(value)
 
 func _on_hp_changed(delta: int) -> void:
 	if state.hp + delta > state.max_hp:
@@ -16,6 +18,10 @@ func _on_hp_changed(delta: int) -> void:
 		state.hp -= delta
 	
 	emit_signal('hp_changed', state.hp)
+
+func _on_enemy_killed(level: int):
+	state.score += level
+	emit_signal('score_changed', state.score)
 
 func spawn_enemy(level: int):
 	var enemy = enemy_scene.instance()
@@ -31,5 +37,6 @@ func spawn_wave():
 
 func _ready() -> void:
 	$AudioStreamPlayer.play()
+	enemy_scene.connect("enemy_killed", self, "_on_enemy_killed")
 	spawn_wave()
 	
