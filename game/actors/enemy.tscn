@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://sprites/enemy.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://sounds/dmgslime.wav" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 21.0238
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource( 2 )
@@ -27,5 +28,9 @@ margin_right = 33.0
 margin_bottom = -27.0
 text = "0"
 scroll_active = false
+
+[node name="SlimeDeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 12.0
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_animation_finished"]
