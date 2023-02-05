@@ -1,14 +1,43 @@
 extends Node2D
 
-var CorrectSound = preload("res://sounds/itk.ogg")
-
-func _process(delta: float) -> void:
-	if !$AudioStreamPlayer.is_playing():
-		$AudioStreamPlayer.stream = CorrectSound
-		$AudioStreamPlayer.play()
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$VideoPlayer.play()
+	# wait 35 seconds
+	yield(get_tree().create_timer(34), "timeout")
+	$AnimationPlayer.play("Fade Out")
+	yield(get_tree().create_timer(1), "timeout")
+	$VideoPlayer.hide()
+	$AudioStreamPlayer.play()
+	
+	$AnimationPlayer.play("RESET")
+	$"coding heroes".show()
+	yield(get_tree().create_timer(4.5), "timeout")
+	$AnimationPlayer.play("Fade Out")
+	yield(get_tree().create_timer(1), "timeout")
+	
+	$AnimationPlayer.play("RESET")
+	$"music master".show()
+	yield(get_tree().create_timer(3), "timeout")
+	$AnimationPlayer.play("Fade Out")
+	yield(get_tree().create_timer(1), "timeout")
+	$"music master".hide()
+	
+	$AnimationPlayer.play("RESET")
+	$"art guru".show()
+	yield(get_tree().create_timer(3), "timeout")
+	$AnimationPlayer.play("Fade Out")
+	yield(get_tree().create_timer(1), "timeout")
+	$"art guru".hide()
+	
+	$AnimationPlayer.play("RESET")
+	$"presented".show()
+	yield(get_tree().create_timer(3), "timeout")
+	$AnimationPlayer.play("Fade Out")
+	yield(get_tree().create_timer(1), "timeout")
+	$"presented".hide()
 
+	
+	# switch scenes here
+	get_tree().change_scene("res://scenes/menu.tscn")
