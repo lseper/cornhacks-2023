@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sprites/Player.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://actors/Laptop.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=7]
 
 [sub_resource type="CapsuleShape2D" id=2]
 height = 28.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 8.0
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 7 )
@@ -17,6 +22,20 @@ frames = ExtResource( 1 )
 animation = "running"
 playing = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CharacterCollider" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -25 )
 shape = SubResource( 2 )
+
+[node name="Laptop" type="KinematicBody2D" parent="."]
+collision_mask = 9
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 2 )
+
+[node name="LaptopCollider" type="CollisionShape2D" parent="Laptop"]
+position = Vector2( 25, -25 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Laptop"]
+position = Vector2( 25, -25 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 3 )
