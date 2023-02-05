@@ -1,11 +1,11 @@
 [gd_resource type="SpriteFrames" load_steps=19 format=2]
 
-[ext_resource path="res://sprites/slime/move/1_slime1.png" type="Texture" id=1]
-[ext_resource path="res://sprites/slime/move/1_slime4.png" type="Texture" id=2]
-[ext_resource path="res://sprites/slime/move/1_slime2.png" type="Texture" id=3]
-[ext_resource path="res://sprites/slime/move/1_slime6.png" type="Texture" id=4]
-[ext_resource path="res://sprites/slime/move/1_slime3.png" type="Texture" id=5]
-[ext_resource path="res://sprites/slime/move/1_slime5.png" type="Texture" id=6]
+[ext_resource path="res://sprites/slime/move/1_slime/1_slime6.png" type="Texture" id=1]
+[ext_resource path="res://sprites/slime/move/1_slime/1_slime3.png" type="Texture" id=2]
+[ext_resource path="res://sprites/slime/move/1_slime/1_slime4.png" type="Texture" id=3]
+[ext_resource path="res://sprites/slime/move/1_slime/1_slime1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/slime/move/1_slime/1_slime2.png" type="Texture" id=5]
+[ext_resource path="res://sprites/slime/move/1_slime/1_slime5.png" type="Texture" id=6]
 [ext_resource path="res://sprites/slime/move/2_slime/2_slime3.png" type="Texture" id=7]
 [ext_resource path="res://sprites/slime/move/3_slime/3_slime3.png" type="Texture" id=8]
 [ext_resource path="res://sprites/slime/move/2_slime/2_slime6.png" type="Texture" id=9]
@@ -21,7 +21,7 @@
 
 [resource]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "1",
 "speed": 5.0
