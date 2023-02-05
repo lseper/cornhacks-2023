@@ -15,7 +15,7 @@ func _on_hp_changed(delta: int) -> void:
 	elif state.hp + delta < 0:
 		state.hp = 0
 	else:
-		state.hp -= delta
+		state.hp += delta
 	
 	emit_signal('hp_changed', state.hp)
 
