@@ -980,4 +980,4 @@ margin_bottom = 175.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "fdsgdsgdsfdsgfd"
 
-[connection signal="_hp_changed" from="Player" to="State" method="_on_hp_changed"]
+[connection signal="_hp_changed" from="Player" to="." method="_on_hp_changed"]
