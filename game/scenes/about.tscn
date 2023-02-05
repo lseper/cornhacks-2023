@@ -49,6 +49,7 @@ P.S.
 controls: A and D or <- and -> to move right and left"
 
 [node name="BackButton" type="Button" parent="."]
+visible = false
 margin_left = 428.0
 margin_top = 467.0
 margin_right = 605.0

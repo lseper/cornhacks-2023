@@ -44,7 +44,8 @@ text = "Start New Game"
 margin_top = 151.0
 margin_right = 259.0
 margin_bottom = 174.0
-focus_neighbour_top = NodePath("../QuitButton")
+focus_neighbour_top = NodePath("../StartButton")
+focus_neighbour_bottom = NodePath("../QuitButton")
 text = "About"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
